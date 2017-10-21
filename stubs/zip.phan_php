@@ -4,6 +4,7 @@
 
 namespace {
 class ZipArchive implements \Countable {
+
     // constants
     public const CREATE = 1;
     public const EXCL = 2;
@@ -80,6 +81,7 @@ class ZipArchive implements \Countable {
     public const OPSYS_OS_400 = 18;
     public const OPSYS_OS_X = 19;
     public const OPSYS_DEFAULT = 3;
+
     // properties
     public $status;
     public $statussys;
@@ -88,6 +90,7 @@ class ZipArchive implements \Countable {
     public $comment;
     public $statusSys;
     public $numFiles;
+
     // methods
     public function open($filename, $flags = NULL) {}
     public function setPassword($password) {}
@@ -128,6 +131,7 @@ class ZipArchive implements \Countable {
     public function setCompressionName($name, $method, $compflags = NULL) {}
     public function setCompressionIndex($index, $method, $compflags = NULL) {}
 }
+
 function zip_close($zip) {}
 function zip_entry_close($zip_ent) {}
 function zip_entry_compressedsize($zip_entry) {}

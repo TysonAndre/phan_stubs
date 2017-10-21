@@ -4,9 +4,6 @@
 
 namespace {
 class APCuIterator implements \Iterator, \Traversable {
-    // constants
-
-    // properties
 
     // methods
     public function __construct($search = NULL, $format = NULL, $chunk_size = NULL, $list = NULL) {}
@@ -19,6 +16,7 @@ class APCuIterator implements \Iterator, \Traversable {
     public function getTotalSize() {}
     public function getTotalCount() {}
 }
+
 function apcu_add($key, $var, $ttl = NULL) {}
 function apcu_cache_info($limited = NULL) {}
 function apcu_cas($key, $old, $new) {}

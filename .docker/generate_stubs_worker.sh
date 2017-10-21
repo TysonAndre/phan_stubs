@@ -1,51 +1,20 @@
-#!/usr/bin/env bash
-set -xeu
-
-function install_extension() {
-	name=$1
-	pecl install "$@" && echo "extension=$name.so" > "/usr/local/etc/php/conf.d/$name.ini"
-}
-function install_zend_extension() {
-	name=$1
-	pecl install "$@" && echo "zend_extension=$name.so" > "/usr/local/etc/php/conf.d/$name.ini"
-}
-apt-get update -y 
-
-# Extensions I use
-install_extension ast
-install_extension igbinary
-yes ''|install_extension redis
-
-apt-get install libmemcached-dev zlib1g zlib1g-dev -y
-yes ''|install_extension memcached
-
-# Commonly used extensions
-apt-get install libyaml-dev -y 
-yes ''|install_extension yaml
-
-apt-get install libzip-dev
-yes ''|install_extension zip
-install_extension apcu -y 
-yes ''|install_extension apcu_bc-1.0.3
-echo "extension=apc.so" > "/usr/local/etc/php/conf.d/apcu_bc-1.0.3.ini"
-install_extension mailparse
-apt-get install libssl-dev -y 
-yes ''|install_extension mongodb
-
-yes ''|install_zend_extension xdebug
-
-EXTENSIONS="apc"
-EXTENSIONS+=" apcu"
-EXTENSIONS+=" igbinary"
-EXTENSIONS+=" redis"
-EXTENSIONS+=" memcached"
-EXTENSIONS+=" yaml"
-EXTENSIONS+=" zip"
-EXTENSIONS+=" mongodb"
-EXTENSIONS+=" mailparse"
-EXTENSIONS+=" xdebug"
-EXTENSIONS+=" ast"
 cd /phan
-for extension in $EXTENSIONS; do
-	./mkstubs -e "$extension" > "/phan_stubs/$extension.phan_php"
+
+#EXTENSIONS="apc"
+#EXTENSIONS+=" apcu"
+#EXTENSIONS+=" igbinary"
+#EXTENSIONS+=" redis"
+#EXTENSIONS+=" memcached"
+#EXTENSIONS+=" yaml"
+#EXTENSIONS+=" zip"
+#EXTENSIONS+=" mongodb"
+#EXTENSIONS+=" mailparse"
+#EXTENSIONS+=" xdebug"
+#EXTENSIONS+=" ast"
+#for extension in $EXTENSIONS; do
+#	./tool/make_stubs -e "$extension" > "/phan_stubs/$extension.phan_php"
+#done
+for extension in $(php -m|grep -E '^\w+$'|grep -vE '^(Core)$'); do
+	echo "Generating stubs for '$extension' ..."
+	./tool/make_stubs -e "$extension" > "/phan_stubs/$extension.phan_php"
 done

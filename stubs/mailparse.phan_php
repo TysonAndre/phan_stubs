@@ -4,9 +4,6 @@
 
 namespace {
 class mimemessage {
-    // constants
-
-    // properties
 
     // methods
     public function mimemessage() {}
@@ -20,6 +17,7 @@ class mimemessage {
     public function remove() {}
     public function add_child() {}
 }
+
 function mailparse_determine_best_xfer_encoding() {}
 function mailparse_msg_create() {}
 function mailparse_msg_extract_part() {}

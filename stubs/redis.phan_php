@@ -4,6 +4,7 @@
 
 namespace {
 class Redis {
+
     // constants
     public const REDIS_NOT_FOUND = 0;
     public const REDIS_STRING = 1;
@@ -24,7 +25,6 @@ class Redis {
     public const SCAN_NORETRY = 0;
     public const AFTER = 'after';
     public const BEFORE = 'before';
-    // properties
 
     // methods
     public function __construct() {}
@@ -241,10 +241,8 @@ class Redis {
     public function evaluate() {}
     public function evaluateSha() {}
 }
-class RedisArray {
-    // constants
 
-    // properties
+class RedisArray {
 
     // methods
     public function __construct() {}
@@ -275,7 +273,9 @@ class RedisArray {
     public function delete() {}
     public function getMultiple() {}
 }
+
 class RedisCluster {
+
     // constants
     public const REDIS_NOT_FOUND = 0;
     public const REDIS_STRING = 1;
@@ -300,7 +300,6 @@ class RedisCluster {
     public const FAILOVER_DISTRIBUTE_SLAVES = 3;
     public const AFTER = 'after';
     public const BEFORE = 'before';
-    // properties
 
     // methods
     public function __construct() {}
@@ -469,46 +468,23 @@ class RedisCluster {
     public function georadius() {}
     public function georadiusbymember() {}
 }
+
 class RedisClusterException extends \Exception {
-    // constants
 
     // properties
     public $message;
     public $code;
     public $file;
     public $line;
-    // methods
-    private function __clone() {}
-    public function __construct($message = NULL, $code = NULL, $previous = NULL) {}
-    public function __wakeup() {}
-    public function getMessage() {}
-    public function getCode() {}
-    public function getFile() {}
-    public function getLine() {}
-    public function getTrace() {}
-    public function getPrevious() {}
-    public function getTraceAsString() {}
-    public function __toString() {}
 }
+
 class RedisException extends \Exception {
-    // constants
 
     // properties
     public $message;
     public $code;
     public $file;
     public $line;
-    // methods
-    private function __clone() {}
-    public function __construct($message = NULL, $code = NULL, $previous = NULL) {}
-    public function __wakeup() {}
-    public function getMessage() {}
-    public function getCode() {}
-    public function getFile() {}
-    public function getLine() {}
-    public function getTrace() {}
-    public function getPrevious() {}
-    public function getTraceAsString() {}
-    public function __toString() {}
 }
+
 }

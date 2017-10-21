@@ -4,6 +4,7 @@
 
 namespace {
 class Memcached {
+
     // constants
     public const LIBMEMCACHED_VERSION_HEX = 16777240;
     public const OPT_COMPRESSION = -1001;
@@ -106,7 +107,6 @@ class Memcached {
     public const GET_PRESERVE_ORDER = 1;
     public const GET_EXTENDED = 2;
     public const GET_ERROR_RETURN_VALUE = false;
-    // properties
 
     // methods
     public function __construct($persistent_id = NULL, $callback = NULL) {}
@@ -167,25 +167,14 @@ class Memcached {
     public function isPersistent() {}
     public function isPristine() {}
 }
+
 class MemcachedException extends \RuntimeException {
-    // constants
 
     // properties
     public $message;
     public $code;
     public $file;
     public $line;
-    // methods
-    private function __clone() {}
-    public function __construct($message = NULL, $code = NULL, $previous = NULL) {}
-    public function __wakeup() {}
-    public function getMessage() {}
-    public function getCode() {}
-    public function getFile() {}
-    public function getLine() {}
-    public function getTrace() {}
-    public function getPrevious() {}
-    public function getTraceAsString() {}
-    public function __toString() {}
 }
+
 }

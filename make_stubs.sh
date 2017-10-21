@@ -14,5 +14,5 @@ if [[ ! -d stubs ]]; then
 fi
 
 
-docker pull php:7.1-cli
-docker run -v "$PWD/stubs":/phan_stubs/ -v "$PWD/.docker":/scripts:ro -v "$PHAN_CHECKOUT_PATH":/phan:ro -e /bin/bash php:7.1-cli /scripts/generate_stubs_worker.sh
+docker build -t phan-stubs-builder:7.1-cli -f .docker/Dockerfile .docker
+docker run -v "$PWD/stubs":/phan_stubs/ -v "$PWD/.docker":/scripts:ro -v "$PHAN_CHECKOUT_PATH":/phan:ro -e /bin/bash phan-stubs-builder:7.1-cli /scripts/generate_stubs_worker.sh

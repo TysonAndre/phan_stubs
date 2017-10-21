@@ -4,21 +4,11 @@
 
 namespace {
 class APCIterator extends \APCuIterator {
-    // constants
-
-    // properties
 
     // methods
     public function __construct($ignored, $search = NULL, $format = NULL, $chunk_size = NULL, $list = NULL) {}
-    public function rewind() {}
-    public function current() {}
-    public function key() {}
-    public function next() {}
-    public function valid() {}
-    public function getTotalHits() {}
-    public function getTotalSize() {}
-    public function getTotalCount() {}
 }
+
 function apc_add($key, $var, $ttl = NULL) {}
 function apc_cache_info($type = NULL, $limited = NULL) {}
 function apc_cas($key, $old, $new) {}
