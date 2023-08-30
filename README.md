@@ -3,15 +3,12 @@ Stubs for Phan
 
 See https://github.com/phan/phan/wiki/How-To-Use-Stubs
 
-This uses `tool/make_stubs -e $EXTENSION_NAME` from a Phan installation.
+This uses `tool/make_stubs -e $EXTENSION_NAME` from Phan and requires `docker` to run
 
 Generating Stubs
 ----------------
 
-Clone [phan](https://github.com/phan/phan) and run `composer install` inside of phan directory.
-
 ```sh
-export PHAN_CHECKOUT_PATH=/path/to/phan
 ./make_stubs.sh
 ```
 
