@@ -10,6 +10,7 @@ Generating Stubs
 
 ```sh
 ./make_stubs.sh
+./make_stubs.sh 7.4
 ```
 
 Adding new extensions

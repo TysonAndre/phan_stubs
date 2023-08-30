@@ -1,6 +1,5 @@
 #!/bin/bash
 cd /phan/vendor/phan/phan
-ls -lRt
 
 #EXTENSIONS="apc"
 #EXTENSIONS+=" apcu"
