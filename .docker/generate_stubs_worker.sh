@@ -1,4 +1,6 @@
-cd /phan
+#!/bin/bash
+cd /phan/vendor/phan/phan
+ls -lRt
 
 #EXTENSIONS="apc"
 #EXTENSIONS+=" apcu"
@@ -15,6 +17,6 @@ cd /phan
 #	./tool/make_stubs -e "$extension" > "/phan_stubs/$extension.phan_php"
 #done
 for extension in $(php -m|grep -E '^\w+$'|grep -vE '^(Core)$'); do
-	echo "Generating stubs for '$extension' ..."
-	./tool/make_stubs -e "$extension" > "/phan_stubs/$extension.phan_php"
+  echo "Generating stubs for '$extension' ..."
+  ./tool/make_stubs -e "$extension" > "/phan_stubs/$extension.phan_php"
 done

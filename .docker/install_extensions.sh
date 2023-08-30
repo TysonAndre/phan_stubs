@@ -2,12 +2,12 @@
 set -xeu
 
 function install_extension() {
-	name=$1
-	pecl install "$@" && echo "extension=$name.so" > "/usr/local/etc/php/conf.d/$name.ini"
+  name=$1
+  pecl install "$@" && echo "extension=$name.so" > "/usr/local/etc/php/conf.d/$name.ini"
 }
 function install_zend_extension() {
-	name=$1
-	pecl install "$@" && echo "zend_extension=$name.so" > "/usr/local/etc/php/conf.d/$name.ini"
+  name=$1
+  pecl install "$@" && echo "zend_extension=$name.so" > "/usr/local/etc/php/conf.d/$name.ini"
 }
 #apt-get update -y
 
@@ -24,7 +24,7 @@ yes ''|install_extension memcached
 yes ''|install_extension yaml
 
 #apt-get install libzip-dev -y
-yes ''|install_extension zip
+#yes ''|install_extension zip
 install_extension apcu -y
 yes ''|install_extension apcu_bc-1.0.3
 echo "extension=apc.so" > "/usr/local/etc/php/conf.d/apcu_bc-1.0.3.ini"

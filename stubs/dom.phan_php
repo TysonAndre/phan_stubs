@@ -14,7 +14,7 @@ class DOMAttr extends \DOMNode {
 
     // methods
     public function isId() {}
-    public function __construct($name, $value = NULL) {}
+    public function __construct($name, $value = null) {}
 }
 
 class DOMCdataSection extends \DOMText {
@@ -40,15 +40,15 @@ class DOMCharacterData extends \DOMNode {
 class DOMComment extends \DOMCharacterData {
 
     // methods
-    public function __construct($value = NULL) {}
+    public function __construct($value = null) {}
 }
 
 class DOMConfiguration {
 
     // methods
     public function setParameter($name, $value) {}
-    public function getParameter($name = NULL) {}
-    public function canSetParameter($name = NULL, $value = NULL) {}
+    public function getParameter($name = null) {}
+    public function canSetParameter($name = null, $value = null) {}
 }
 
 class DOMDocument extends \DOMNode {
@@ -75,32 +75,32 @@ class DOMDocument extends \DOMNode {
     public $xmlVersion;
 
     // methods
-    public function createElement($tagName, $value = NULL) {}
+    public function createElement($tagName, $value = null) {}
     public function createDocumentFragment() {}
     public function createTextNode($data) {}
     public function createComment($data) {}
     public function createCDATASection($data) {}
-    public function createProcessingInstruction($target, $data) {}
+    public function createProcessingInstruction($target, $data = null) {}
     public function createAttribute($name) {}
     public function createEntityReference($name) {}
     public function getElementsByTagName($tagName) {}
-    public function importNode(\DOMNode $importedNode, $deep) {}
-    public function createElementNS($namespaceURI, $qualifiedName, $value = NULL) {}
+    public function importNode(\DOMNode $importedNode, $deep = null) {}
+    public function createElementNS($namespaceURI, $qualifiedName, $value = null) {}
     public function createAttributeNS($namespaceURI, $qualifiedName) {}
     public function getElementsByTagNameNS($namespaceURI, $localName) {}
     public function getElementById($elementId) {}
     public function adoptNode(\DOMNode $source) {}
     public function normalizeDocument() {}
     public function renameNode(\DOMNode $node, $namespaceURI, $qualifiedName) {}
-    public function load($source, $options = NULL) {}
+    public function load($source, $options = null) {}
     public function save($file) {}
-    public function loadXML($source, $options = NULL) {}
-    public function saveXML(\DOMNode $node = NULL, $options = NULL) {}
-    public function __construct($version = NULL, $encoding = NULL) {}
+    public function loadXML($source, $options = null) {}
+    public function saveXML(?\DOMNode $node = null, $options = null) {}
+    public function __construct($version = null, $encoding = null) {}
     public function validate() {}
-    public function xinclude($options = NULL) {}
-    public function loadHTML($source, $options = NULL) {}
-    public function loadHTMLFile($source, $options = NULL) {}
+    public function xinclude($options = null) {}
+    public function loadHTML($source, $options = null) {}
+    public function loadHTMLFile($source, $options = null) {}
     public function saveHTML() {}
     public function saveHTMLFile($file) {}
     public function schemaValidate($filename) {}
@@ -123,12 +123,12 @@ class DOMDocumentFragment extends \DOMNode {
 class DOMDocumentType extends \DOMNode {
 
     // properties
+    public $entities;
+    public $internalSubset;
+    public $name;
+    public $notations;
     public $publicId;
     public $systemId;
-    public $name;
-    public $entities;
-    public $notations;
-    public $internalSubset;
 }
 
 class DOMDomError {
@@ -159,17 +159,17 @@ class DOMElement extends \DOMNode {
     public function setIdAttribute($name, $isId) {}
     public function setIdAttributeNS($namespaceURI, $localName, $isId) {}
     public function setIdAttributeNode(\DOMAttr $attr, $isId) {}
-    public function __construct($name, $value = NULL, $uri = NULL) {}
+    public function __construct($name, $value = null, $uri = null) {}
 }
 
 class DOMEntity extends \DOMNode {
 
     // properties
-    public $publicId;
-    public $systemId;
-    public $notationName;
     public $actualEncoding;
     public $encoding;
+    public $notationName;
+    public $publicId;
+    public $systemId;
     public $version;
 }
 
@@ -192,9 +192,9 @@ final class DOMException extends \Exception {
 
     // properties
     public $code;
-    public $message;
-    public $file;
-    public $line;
+    protected $message;
+    protected $file;
+    protected $line;
 }
 
 class DOMImplementation {
@@ -206,7 +206,7 @@ class DOMImplementation {
     public function getFeature($feature, $version) {}
     public function hasFeature() {}
     public function createDocumentType($qualifiedName, $publicId, $systemId) {}
-    public function createDocument($namespaceURI, $qualifiedName, \DOMDocumentType $docType) {}
+    public function createDocument($namespaceURI, $qualifiedName, \DOMDocumentType $docType = unknown) {}
 }
 
 class DOMImplementationList {
@@ -235,7 +235,7 @@ class DOMNameList {
 class DOMNameSpaceNode {
 }
 
-class DOMNamedNodeMap implements \Traversable {
+class DOMNamedNodeMap implements \Traversable, \Countable {
 
     // properties
     public $length;
@@ -243,40 +243,41 @@ class DOMNamedNodeMap implements \Traversable {
     // methods
     public function getNamedItem($name) {}
     public function setNamedItem(\DOMNode $arg) {}
-    public function removeNamedItem($name = NULL) {}
-    public function item($index = NULL) {}
-    public function getNamedItemNS($namespaceURI = NULL, $localName = NULL) {}
-    public function setNamedItemNS(\DOMNode $arg = NULL) {}
-    public function removeNamedItemNS($namespaceURI = NULL, $localName = NULL) {}
+    public function removeNamedItem($name = null) {}
+    public function item($index = null) {}
+    public function getNamedItemNS($namespaceURI = null, $localName = null) {}
+    public function setNamedItemNS(\DOMNode $arg = unknown) {}
+    public function removeNamedItemNS($namespaceURI = null, $localName = null) {}
+    public function count() {}
 }
 
 class DOMNode {
 
     // properties
-    public $nodeName;
-    public $nodeValue;
-    public $nodeType;
-    public $parentNode;
+    public $attributes;
+    public $baseURI;
     public $childNodes;
     public $firstChild;
     public $lastChild;
-    public $previousSibling;
-    public $nextSibling;
-    public $attributes;
-    public $ownerDocument;
-    public $namespaceURI;
-    public $prefix;
     public $localName;
-    public $baseURI;
+    public $namespaceURI;
+    public $nextSibling;
+    public $nodeName;
+    public $nodeType;
+    public $nodeValue;
+    public $ownerDocument;
+    public $parentNode;
+    public $prefix;
+    public $previousSibling;
     public $textContent;
 
     // methods
-    public function insertBefore(\DOMNode $newChild, \DOMNode $refChild = NULL) {}
+    public function insertBefore(\DOMNode $newChild, ?\DOMNode $refChild = null) {}
     public function replaceChild(\DOMNode $newChild, \DOMNode $oldChild) {}
     public function removeChild(\DOMNode $oldChild) {}
     public function appendChild(\DOMNode $newChild) {}
     public function hasChildNodes() {}
-    public function cloneNode($deep = NULL) {}
+    public function cloneNode($deep = null) {}
     public function normalize() {}
     public function isSupported($feature, $version) {}
     public function hasAttributes() {}
@@ -291,17 +292,18 @@ class DOMNode {
     public function getUserData($key) {}
     public function getNodePath() {}
     public function getLineNo() {}
-    public function C14N($exclusive = NULL, $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
-    public function C14NFile($uri, $exclusive = NULL, $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+    public function C14N($exclusive = null, $with_comments = null, ?array $xpath = null, ?array $ns_prefixes = null) {}
+    public function C14NFile($uri, $exclusive = null, $with_comments = null, ?array $xpath = null, ?array $ns_prefixes = null) {}
 }
 
-class DOMNodeList implements \Traversable {
+class DOMNodeList implements \Traversable, \Countable {
 
     // properties
     public $length;
 
     // methods
     public function item($index) {}
+    public function count() {}
 }
 
 class DOMNotation extends \DOMNode {
@@ -314,11 +316,11 @@ class DOMNotation extends \DOMNode {
 class DOMProcessingInstruction extends \DOMNode {
 
     // properties
-    public $target;
     public $data;
+    public $target;
 
     // methods
-    public function __construct($name, $value = NULL) {}
+    public function __construct($name, $value = null) {}
 }
 
 class DOMStringExtend {
@@ -344,7 +346,7 @@ class DOMText extends \DOMCharacterData {
     public function isWhitespaceInElementContent() {}
     public function isElementContentWhitespace() {}
     public function replaceWholeText($content) {}
-    public function __construct($value = NULL) {}
+    public function __construct($value = null) {}
 }
 
 class DOMTypeinfo {
@@ -364,8 +366,8 @@ class DOMXPath {
     // methods
     public function __construct(\DOMDocument $doc) {}
     public function registerNamespace($prefix, $uri) {}
-    public function query($expr, \DOMNode $context = NULL, $registerNodeNS = NULL) {}
-    public function evaluate($expr, \DOMNode $context = NULL, $registerNodeNS = NULL) {}
+    public function query($expr, ?\DOMNode $context = null, $registerNodeNS = null) {}
+    public function evaluate($expr, ?\DOMNode $context = null, $registerNodeNS = null) {}
     public function registerPhpFunctions() {}
 }
 
