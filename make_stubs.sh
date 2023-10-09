@@ -1,6 +1,6 @@
 #!/usr/bin/env -S bash
 PHPV=$1
-PHPV=${PHPV:=7.1}
+PHPV=${PHPV:=7.4}
 if [[ ! -d stubs ]]; then
   echo "Must run from the root of this project (where stubs is a subdirectory)"
   exit 1
