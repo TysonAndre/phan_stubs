@@ -28,7 +28,9 @@ RUN apt-get update -y && \
 	php$PHPV-igbinary \
 	php$PHPV-intl \
 	php$PHPV-imagick \
+	php$PHPV-imap \
 	php$PHPV-fileinfo \
+	php$PHPV-ldap \
 	php$PHPV-mailparse \
 	php$PHPV-mbstring \
 	php$PHPV-mcrypt \

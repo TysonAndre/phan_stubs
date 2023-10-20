@@ -22,6 +22,8 @@ else
     echo SKIPPING pdo_cubrid, PHP$PHPVERSION > 7.1
 fi
 
+yes ''|install_extension brotli
+
 exit  # Extensions below installed using debian packages
 # Extensions I use
 install_extension ast
@@ -45,3 +47,4 @@ install_extension mailparse
 yes ''|install_extension mongodb
 
 yes ''|install_zend_extension xdebug
+
