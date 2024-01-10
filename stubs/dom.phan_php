@@ -80,11 +80,11 @@ class DOMDocument extends \DOMNode {
     public function createTextNode($data) {}
     public function createComment($data) {}
     public function createCDATASection($data) {}
-    public function createProcessingInstruction($target, $data) {}
+    public function createProcessingInstruction($target, $data = null) {}
     public function createAttribute($name) {}
     public function createEntityReference($name) {}
     public function getElementsByTagName($tagName) {}
-    public function importNode(\DOMNode $importedNode, $deep) {}
+    public function importNode(\DOMNode $importedNode, $deep = null) {}
     public function createElementNS($namespaceURI, $qualifiedName, $value = null) {}
     public function createAttributeNS($namespaceURI, $qualifiedName) {}
     public function getElementsByTagNameNS($namespaceURI, $localName) {}
@@ -206,7 +206,7 @@ class DOMImplementation {
     public function getFeature($feature, $version) {}
     public function hasFeature() {}
     public function createDocumentType($qualifiedName, $publicId, $systemId) {}
-    public function createDocument($namespaceURI, $qualifiedName, \DOMDocumentType $docType) {}
+    public function createDocument($namespaceURI, $qualifiedName, \DOMDocumentType $docType = unknown) {}
 }
 
 class DOMImplementationList {
@@ -235,7 +235,7 @@ class DOMNameList {
 class DOMNameSpaceNode {
 }
 
-class DOMNamedNodeMap implements \Traversable {
+class DOMNamedNodeMap implements \Traversable, \Countable {
 
     // properties
     public $length;
@@ -248,6 +248,7 @@ class DOMNamedNodeMap implements \Traversable {
     public function getNamedItemNS($namespaceURI = null, $localName = null) {}
     public function setNamedItemNS(\DOMNode $arg = unknown) {}
     public function removeNamedItemNS($namespaceURI = null, $localName = null) {}
+    public function count() {}
 }
 
 class DOMNode {
@@ -295,13 +296,14 @@ class DOMNode {
     public function C14NFile($uri, $exclusive = null, $with_comments = null, ?array $xpath = null, ?array $ns_prefixes = null) {}
 }
 
-class DOMNodeList implements \Traversable {
+class DOMNodeList implements \Traversable, \Countable {
 
     // properties
     public $length;
 
     // methods
     public function item($index) {}
+    public function count() {}
 }
 
 class DOMNotation extends \DOMNode {

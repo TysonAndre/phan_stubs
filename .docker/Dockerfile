@@ -6,6 +6,10 @@ FROM dockette/php:${PHPV}
 ARG PHPV
 ENV PHPVERSION=$PHPV
 
+
+# Always included in PHP8:
+#   php$PHPV-json
+
 RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
@@ -17,12 +21,12 @@ RUN apt-get update -y && \
 	libssl-dev \
 	libpng-dev \
 	php-pear \
+	php-geoip \
 	php$PHPV-apcu \
 	php$PHPV-bcmath \
 	php$PHPV-dev \
 	php$PHPV-dom \
 	php$PHPV-exif \
-	php$PHPV-json \
 	php$PHPV-fileinfo \
 	php$PHPV-gd \
 	php$PHPV-igbinary \
