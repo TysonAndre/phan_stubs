@@ -10,7 +10,16 @@ ENV PHPVERSION=$PHPV
 # Always included in PHP8:
 #   php$PHPV-json
 
-RUN apt-get update -y && \
+# May be a solution to get the sury signing key:
+# apt-key adv --fetch-keys https://packages.sury.org/php/apt.gpg
+#    apt-key adv --keyserver keys.gnupg.net --recv-key B188E2B695BD4743
+
+RUN \
+    apt-get update -y ; \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends gnupg && \
+    apt-key adv --fetch-keys https://packages.sury.org/php/apt.gpg && \
+    apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
 	libmemcached-dev \
@@ -48,6 +57,7 @@ RUN apt-get update -y && \
 	php$PHPV-socket \
 	php$PHPV-xml \
 	php$PHPV-simplexml \
+	php$PHPV-tidy \
 	php$PHPV-xmlwriter \
 	php$PHPV-yaml \
 	php$PHPV-zip \
